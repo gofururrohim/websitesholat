@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Sholat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="moon-icon">
+                    <div class="crescent"></div>
+                </div>
+                <h1>Jadwal Sholat</h1>
+            </div>
+            <div class="date-info">
+                <div id="hijri-date">Loading...</div>
+                <div id="gregorian-date">Loading...</div>
+            </div>
+        </header>
+
+        <main>
+            <div class="location-card">
+                <div class="location-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="location-text">
+                    <h2 id="location-name">Mendapatkan lokasi...</h2>
+                    <p id="location-details">Mohon tunggu sebentar</p>
+                </div>
+            </div>
+
+            <div class="prayer-times-container">
+                <div class="prayer-card" id="current-prayer">
+                    <h3>Waktu Sholat Saat Ini</h3>
+                    <div class="prayer-name" id="current-prayer-name">Loading...</div>
+                    <div class="prayer-time" id="current-prayer-time">--:--</div>
+                    <div class="next-prayer">
+                        <span>Sholat berikutnya:</span>
+                        <span id="next-prayer-name">Loading...</span>
+                        <span id="next-prayer-time">--:--</span>
+                    </div>
+                    <div class="countdown" id="countdown">--:--:--</div>
+                </div>
+
+                <div class="all-prayers">
+                    <div class="prayer-time-item">
+                        <div class="prayer-icon fajr-icon"></div>
+                        <div class="prayer-label">Subuh</div>
+                        <div class="prayer-time" id="fajr-time">--:--</div>
+                    </div>
+                    <div class="prayer-time-item">
+                        <div class="prayer-icon sunrise-icon"></div>
+                        <div class="prayer-label">Syuruq</div>
+                        <div class="prayer-time" id="sunrise-time">--:--</div>
+                    </div>
+                    <div class="prayer-time-item">
+                        <div class="prayer-icon dhuhr-icon"></div>
+                        <div class="prayer-label">Dzuhur</div>
+                        <div class="prayer-time" id="dhuhr-time">--:--</div>
+                    </div>
+                    <div class="prayer-time-item">
+                        <div class="prayer-icon asr-icon"></div>
+                        <div class="prayer-label">Ashar</div>
+                        <div class="prayer-time" id="asr-time">--:--</div>
+                    </div>
+                    <div class="prayer-time-item">
+                        <div class="prayer-icon maghrib-icon"></div>
+                        <div class="prayer-label">Maghrib</div>
+                        <div class="prayer-time" id="maghrib-time">--:--</div>
+                    </div>
+                    <div class="prayer-time-item">
+                        <div class="prayer-icon isha-icon"></div>
+                        <div class="prayer-label">Isya</div>
+                        <div class="prayer-time" id="isha-time">--:--</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 Jadwal Sholat | Dibuat dengan ❤️ untuk umat Islam</p>
+        </footer>
+    </div>
+
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loader"></div>
+        <p>Mendapatkan jadwal sholat...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

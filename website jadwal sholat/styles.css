@@ -1,0 +1,397 @@
+:root {
+    --primary-color: #1F8A70;
+    --secondary-color: #00425A;
+    --accent-color: #BFDB38;
+    --gold-color: #D4AF37;
+    --light-color: #F1F6F9;
+    --dark-color: #212A3E;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    background-image: url('pattern.png');
+    background-size: 200px;
+    background-repeat: repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px 0;
+    border-bottom: 2px solid var(--primary-color);
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.moon-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.crescent {
+    width: 30px;
+    height: 30px;
+    background-color: var(--light-color);
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+}
+
+h1 {
+    font-family: 'Scheherazade New', serif;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+.date-info {
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+#hijri-date {
+    font-family: 'Scheherazade New', serif;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+#gregorian-date {
+    color: var(--dark-color);
+}
+
+/* Location Card Styles */
+.location-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    border-left: 5px solid var(--primary-color);
+}
+
+.location-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--primary-color);
+}
+
+.location-text h2 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.location-text p {
+    color: var(--dark-color);
+    opacity: 0.8;
+}
+
+/* Prayer Times Container */
+.prayer-times-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .prayer-times-container {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* Current Prayer Card */
+.prayer-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid var(--accent-color);
+}
+
+.prayer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('mosque-silhouette.png');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.prayer-card h3 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.prayer-name {
+    font-family: 'Scheherazade New', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.prayer-time {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.next-prayer {
+    background-color: rgba(31, 138, 112, 0.1);
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.next-prayer span:first-child {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+#next-prayer-name {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+#next-prayer-time {
+    font-weight: bold;
+}
+
+.countdown {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    position: relative;
+    z-index: 1;
+}
+
+/* All Prayers Grid */
+.all-prayers {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    border-top: 5px solid var(--primary-color);
+}
+
+@media (min-width: 992px) {
+    .all-prayers {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.prayer-time-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prayer-time-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prayer-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fajr-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231F8A70'%3E%3Cpath d='M12 2L4.5 9.5 12 17l7.5-7.5L12 2zm0 18v2M3 12H1M23 12h-2M17.657 6.343l1.414-1.414M4.929 6.343L3.515 4.93'/%3E%3C/svg%3E");
+}
+
+.sunrise-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D4AF37'%3E%3Cpath d='M12 2v8M4.93 10.93L6.34 9.5M19.07 10.93L17.66 9.5M22 13h-2M4 13H2M16 13a4 4 0 11-8 0M12 21v-2M3 17h18'/%3E%3C/svg%3E");
+}
+
+.dhuhr-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231F8A70'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cpath d='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42'/%3E%3C/svg%3E");
+}
+
+.asr-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231F8A70'%3E%3Cpath d='M12 2v4M12 18v4M4.93 4.93L7.76 7.76M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
+}
+
+.maghrib-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D4AF37'%3E%3Cpath d='M12 10v2M12 22v-2M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M22 17H2M16 7l-4-4-4 4M12 21a5 5 0 01-5-5'/%3E%3C/svg%3E");
+}
+
+.isha-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231F8A70'%3E%3Cpath d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z'/%3E%3C/svg%3E");
+}
+
+.prayer-label {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.prayer-time-item .prayer-time {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--dark-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--light-color);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .date-info {
+        text-align: left;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .prayer-name {
+        font-size: 1.8rem;
+    }
+    
+    .prayer-time {
+        font-size: 2rem;
+    }
+    
+    .countdown {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .all-prayers {
+        grid-template-columns: 1fr;
+    }
+    
+    .prayer-time-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .prayer-icon {
+        margin-bottom: 0;
+    }
+    
+    .prayer-label {
+        flex: 1;
+        margin-left: 15px;
+        margin-bottom: 0;
+    }
+}
